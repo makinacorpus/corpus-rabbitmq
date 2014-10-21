@@ -1,6 +1,5 @@
 {% set cfg = opts['ms_project'] %}
 {% import "makina-states/services/http/nginx/init.sls" as nginx with context %}
-{% import "makina-states/services/php/init.sls" as php with context %}
 include:
   - makina-states.services.http.nginx
 {% set data = cfg.data %}
@@ -18,8 +17,3 @@ echo reboot:
                     vh_top_source=data.nginx_top,
                     vh_content_source=data.nginx_vhost,
                     cfg=cfg) }}
-
-{{php.fpm_pool(cfg.data.domain,
-               cfg.data.www_dir,
-               cfg=cfg,
-               **cfg.data.fpm_pool)}}
