@@ -12,7 +12,6 @@ echo reboot:
     - watch_in:
       - mc_proxy: nginx-pre-restart-hook
       - mc_proxy: nginx-pre-hardrestart-hook
-      - mc_proxy: makina-php-pre-restart
 
 {{nginx.virtualhost(data.domain,
                     data.www_dir,
